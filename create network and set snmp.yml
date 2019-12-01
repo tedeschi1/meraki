@@ -9,7 +9,7 @@
         - name: Create Meraki Network
           meraki_network:
             auth_key: "{{ homeapikey }}"
-            org_name: Michael Tedeschi
+            org_name: "{{ homeorgname }}"
             net_name: "{{ networkname }}"
             state: present
             type:
@@ -27,7 +27,7 @@
         - name: Set network access type to community string
           meraki_snmp:
             auth_key: "{{ homeapikey }}"
-            org_name: Michael Tedeschi
+            org_name: "{{ homeorgname }}"
             net_name: "{{ networkname }}"
             state: present
             access: community
