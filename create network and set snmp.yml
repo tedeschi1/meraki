@@ -31,6 +31,6 @@
             net_name: "{{ networkname }}"
             state: present
             access: community
-            community_string: moretestingchanged
+            community_string: "{{ snmpstring }}"
             peer_ips: 10.4.213.130
             v2c_enabled: yes
