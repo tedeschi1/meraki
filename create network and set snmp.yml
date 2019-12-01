@@ -1,0 +1,36 @@
+---
+
+  - name: Test Meraki playbook
+    connection: local
+    hosts: localhost
+
+    tasks:
+
+        - name: Create Meraki Network
+          meraki_network:
+            auth_key: "{{ homeapikey }}"
+            org_name: Michael Tedeschi
+            net_name: "{{ networkname }}"
+            state: present
+            type:
+              - switch
+              - wireless
+            timezone: America/Los_Angeles
+            tags: AEGP
+
+  - name: Test Meraki playbook
+    connection: local
+    hosts: localhost
+
+    tasks:
+
+        - name: Set network access type to community string
+          meraki_snmp:
+            auth_key: "{{ homeapikey }}"
+            org_name: Michael Tedeschi
+            net_name: "{{ networkname }}"
+            state: present
+            access: community
+            community_string: shitworks!
+            peer_ips: 10.4.213.130
+            v2c_enabled: yes
