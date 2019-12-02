@@ -1,0 +1,16 @@
+---
+
+  - name: Test Meraki playbook
+    connection: local
+    hosts: localhost
+
+    tasks:
+
+        -  name: Add Device to New Network
+           meraki_device:
+             auth_key: "{{ homeapikey }}"
+             org_name: Michael Tedeschi
+             net_name: "{{ networkname }}"
+             serial: "{{ homesn }}"
+             state: present
+           delegate_to: localhost
