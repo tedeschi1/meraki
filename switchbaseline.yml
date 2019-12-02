@@ -1,0 +1,27 @@
+---
+
+  - name: Test Meraki playbook
+    connection: local
+    hosts: localhost
+    
+        tasks:
+
+        -  name: Meraki Switch Port Baseline
+           meraki_switchport:
+             auth_key: "{{ homeapikey }}"
+             state: present
+             serial: "{{ homesn }}"
+             number: "{{ item }}"
+             enabled: no
+             name: interface description
+             tags: desktop
+             type: access
+             vlan: 666
+             voice_vlan: 50
+             rstp_enabled: yes
+             stp_guard: "bpdu guard"
+           register: port_config
+           loop:
+             - "1"
+             - "2"
+             - "3"
