@@ -9,7 +9,7 @@
         -  name: Add Device to New Network
            meraki_device:
              auth_key: "{{ homeapikey }}"
-             org_name: Michael Tedeschi
+             org_name: "{ homeorgname }}"
              net_name: "{{ networkname }}"
              serial: "{{ homesn }}"
              state: present
